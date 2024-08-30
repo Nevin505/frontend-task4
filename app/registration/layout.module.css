@@ -1,0 +1,35 @@
+.layoutDivContainer{
+    width: 55%;
+    /* height: ; */
+    border: 2px greenyellow solid;
+    display: flex;
+    position: relative;
+    justify-content: space-evenly;
+    gap: 0.4rem;
+    background-color: #ffffff;
+    border-radius: 1rem;
+    padding: 0.8rem;
+    padding-block: 2.5rem;
+    overflow: hidden;
+    box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+    margin-inline: auto;
+}
+.infoText{
+    text-align: center;
+    /* flex: 1; */
+    /* flex-basis:content; */
+}
+.infoText>h1{
+    /* background-color: rgb(223, 205, 205); */
+    position: relative; /* Position relative to control z-index */
+    z-index: 2; /*Higher z-index value to bring the text in front*/
+    color: black;
+    width: fit-content;
+}
+
+@media(max-width:750px){
+    .layoutDivContainer{
+        flex-direction: column;
+        width: 90%;
+    }
+}

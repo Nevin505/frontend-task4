@@ -1,0 +1,36 @@
+.verifyContainer{
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+.verify{
+    position: absolute;
+    right: 0;
+    top: 0.5rem;
+    cursor: pointer;
+    border: 0;
+    padding: 0.4rem 0.8rem;
+    border-radius: 0.5rem;
+    color: white;
+    background-color: var(--primary-color-700);
+    height: fit-content;
+}
+
+.phoneVerficationConatiner{
+    position: relative;
+
+}
+.customButtonStyles{
+    cursor: pointer;
+    margin-left: auto;
+    border-radius: 0.5rem;
+    color: white;
+    background-color: var(--primary-color-700);
+}
+
+.calendarinput{
+    padding: 0.6rem 2.4rem;
+    width: 100%;
+    border: 0;
+    border-bottom: 1px solid black;
+}

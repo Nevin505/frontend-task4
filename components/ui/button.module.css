@@ -1,0 +1,9 @@
+.mediumPadding{
+    padding: 0.4rem 0.8rem;
+    width: fit-content;
+    border: 0;
+    cursor: pointer;
+    color: white;
+    border-radius: 1rem;
+  background-color: var(--primary-color-700);
+}

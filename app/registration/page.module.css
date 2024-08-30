@@ -1,0 +1,98 @@
+.registratioContainer{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    position: relative;
+    width: 70%;
+    border-radius: 1rem;
+    padding: 0.8rem;
+    padding-block: 4rem;
+    overflow: hidden;
+    box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+    margin-inline: auto;
+    flex: 2;
+}
+.dateContainer{
+    position: relative;
+    /* border: 2px solid #ff0000; */
+    padding-block:0.4rem 1.6rem;
+}
+
+.customButtonStyles{
+    margin-left: auto;
+    border-radius: 0.5rem;
+    color: white;
+    background-color: var(--primary-color-700);
+    cursor: pointer;
+}
+
+.infoText{
+    text-align: center;
+}
+.infoText>h1{
+    background-color: rgb(223, 205, 205);
+    position: relative; /* Position relative to control z-index */
+    z-index: 2; /* Higher z-index value to bring the text in front */
+    color: black;
+    width: fit-content;
+}
+.registerFormStyles{
+    padding-inline: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    width: 50%;
+}
+
+.verifyContainer{
+    position: relative;
+}
+
+/* Verfiy Button Desigin */
+.verify{
+    position: absolute;
+    right: 0;
+    top: 0.5rem;
+    cursor: pointer;
+    border: 0;
+    padding: 0.4rem 0.8rem;
+    border-radius: 0.5rem;
+    color: white;
+    background-color: var(--primary-color-700);
+    height: fit-content;
+}
+
+.calendarinput{
+    padding: 0.4rem 0.6rem;
+    width: 100%;
+    border: 0;
+    border-bottom: 1px solid black;
+    font-size: large;
+}
+.calendarinput:focus{
+    outline: 0;
+}
+.errorMessage{
+    font-size: 0.8125rem;
+    color: red;
+    position: absolute;
+    left: 0;
+    bottom: 0.2rem;
+}
+@media(max-width:758px){
+
+    .registratioContainer{
+         flex-direction: column;
+          width: 90%;
+
+    }
+
+    .registerFormStyles{
+        padding-inline: 0rem;
+        width: 95%;
+    }
+    
+}

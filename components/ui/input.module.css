@@ -1,0 +1,35 @@
+.inputContainer{
+    position: relative;
+    border: 2px solid #ff0000;
+    padding-block:0.4rem 1.6rem;
+     /* width: 100%; */
+     display: flex;
+     gap: 0.8rem;
+}
+
+.inputContainer>input{
+    padding: 0.6rem 2.4rem;
+    width: 100%;
+    border: 0;
+    border-bottom: 1px solid black;
+    font-size: medium;
+}
+
+.inputContainer>input:focus{
+    outline: 0;
+}
+.errorMessageContainer{
+   position: absolute;
+   bottom: 0.2rem;
+   left: 0.5rem;
+   font-size: 0.8125rem;
+   color: red;
+}
+
+.startIcon{
+    position: absolute;
+    left: 0.5rem;
+    top: 20%;
+    
+}
+

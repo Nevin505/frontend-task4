@@ -1,0 +1,11 @@
+.layOutContainer {
+  display: flex;
+  background-image: linear-gradient(
+    to right,
+    var(--primary-backgroundColor-400),
+    var(--primary-backgroundColor-200)
+  );
+  border: 2px solid green;
+  width: 100%;
+  min-height: 100vh;
+}
