@@ -38,8 +38,8 @@ a{
   text-decoration: none;
   padding: 0.4rem 1.2rem;
   border-radius: 0.5rem;
-  color: white;
-  background-color: var(--primary-color-700);
+  /* color: white;
+  background-color: var(--primary-color-700); */
 }
 
 input::-webkit-outer-spin-button,
