@@ -34,8 +34,10 @@ export default function Home() {
 
 //  To Login User
 const handleUserAuthentication=async()=>{
- const response=  await axios.post(authenticateUser,{email:email.inputValue,password:password.inputValue})
+ const response=  await axios.post(authenticateUser,{email:email.inputValue,password:password.inputValue});
+ console.log(response)
  if(response.status==200){
+  sessionStorage.setItem('userId',response.data.id)
   routes.push('/dashboard')
  }
 }

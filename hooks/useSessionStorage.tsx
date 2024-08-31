@@ -5,7 +5,7 @@ const useSessionStorage = (name:string) => {
 
   useEffect(() => {
     setValue(sessionStorage.getItem(name))
-  }, [])
+  }, [name])
 
   return value
 }

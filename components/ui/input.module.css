@@ -1,8 +1,8 @@
 .inputContainer{
     position: relative;
-    border: 2px solid #ff0000;
+    /* border: 2px solid #ff0000; */
     padding-block:0.4rem 1.6rem;
-     /* width: 100%; */
+     width: 100%;
      display: flex;
      gap: 0.8rem;
 }

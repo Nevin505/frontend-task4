@@ -43,9 +43,9 @@
 }
 
 .expandMore{
-  display: block;
-  margin-left: auto;
+  align-self: flex-end;
   cursor: pointer;
+  padding: 0.2rem;
 }
 
 .toggleDisplay{
@@ -53,6 +53,3 @@
 
 }
 
-@media(max-width:750px){
-
-}

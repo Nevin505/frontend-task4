@@ -1,7 +1,7 @@
 import buttonStyles from './button.module.css'
-const Button = ({children,onClick,className}:any) => {
+const Button = ({children,onClick,className,isDisabled}:any) => {
   return (
-       <button onClick={onClick} type="button" className={`${buttonStyles.mediumPadding}  ${className}`}>{children}</button>
+       <button onClick={onClick} type="button"  disabled={isDisabled} className={`${buttonStyles.mediumPadding}  ${className}`}>{children}</button>
   )
 }
 

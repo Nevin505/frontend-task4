@@ -5,5 +5,7 @@
     cursor: pointer;
     color: white;
     border-radius: 1rem;
+    display: block;
+    margin-inline: auto;
   background-color: var(--primary-color-700);
 }

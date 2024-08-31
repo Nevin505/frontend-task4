@@ -1,14 +1,35 @@
 .gstContainer{
-    border: 2px blue solid;
     display: flex;
     flex: 1;
-    display: flex;
     flex-direction: column;
-    /* height: max-content; */
-    /* width: 40rem; */
     align-items: center; 
     justify-content: center;
 }
+.gstInputVerification{
+    border: 2px solid green;
+    max-width: fit-content;
+    padding: 2rem;
+    border-radius: 1rem;
+    background-color: white;
+
+}
+
+.gstInputVerification>h1{
+  padding: 1rem;
+}
 
 
+.gstinGuidelines{
+    display: block;
+    text-align: right;
+    font-size: 0.8125rem;
+    color: red;
+}
 
+@media(max-width:750px){
+    .gstInputVerification{
+        max-width: 18rem;
+    padding: 0.5rem;
+
+    }
+}
