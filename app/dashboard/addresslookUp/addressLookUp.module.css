@@ -1,0 +1,16 @@
+.searchContainer{
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+.mainHeader{
+    padding: 1rem;
+}
+
+.gstinGuidelines{
+    display: block;
+    text-align: right;
+    font-size: 0.8125rem;
+    color: red; 
+}

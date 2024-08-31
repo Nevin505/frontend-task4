@@ -1,0 +1,71 @@
+.dashBoardMainContainer{
+    padding: 1rem 2rem;
+    width: 100%;    
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.kycDetailsContainer{
+    display: flex;
+    flex-wrap:wrap ;
+    gap: 0.8rem;
+}
+
+.kycDetails{
+    flex: 1;
+    background-color: white;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    justify-content: space-between;
+    box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+}
+
+.userInfoContainer {
+    background-color: #f8f9fa; /* Light gray background */
+    border-radius: 8px;        /* Rounded corners */
+    padding: 20px;             /* Padding around the content */
+    margin-bottom: 20px;       /* Space below the container */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  }
+  
+  .userInfoItem {
+    display: flex;
+    justify-content: space-between; /* Space between text and the verified badge */
+    align-items: center;            /* Vertically center the items */
+    padding: 10px 0;                /* Space between items */
+    border-bottom: 1px solid #e9ecef; /* Divider between items */
+  }
+  
+  .userInfoItem:last-child {
+    border-bottom: none; /* Remove the divider from the last item */
+  }
+  
+  .userInfoLabel {
+    font-weight: 600;    /* Bold labels */
+    color: #343a40;      /* Dark gray text color */
+  }
+  
+  .verifiedBadge {
+    background-color: #28a745; /* Green background */
+    color: white;              /* White text */
+    border-radius: 0.825rem;       /* Rounded badge */
+    padding: 0.25rem 0.5rem;          /* Padding inside the badge */
+    font-size: 0.82rem;           /* Small font size */
+  }
+  
+  .unverifiedBadge {
+    background-color: #dc3545; /* Red background */
+    color: white;
+    border-radius: 0.75rem;
+    padding:  0.25rem 0.5rem;
+    font-size: 0.75rem;
+  }
+  .verifiedContainer{
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
