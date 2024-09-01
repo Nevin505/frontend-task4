@@ -23,7 +23,6 @@
 }
 
 body{
-  /* background-color: var(--primary-backgroundColor-400); */
   background-image: linear-gradient(to right,var(--primary-backgroundColor-400),var(--primary-backgroundColor-200));
   background-repeat: no-repeat;
   overflow: hidden;

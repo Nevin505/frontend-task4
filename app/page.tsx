@@ -2,6 +2,8 @@
 
 import Link from "next/link";
 import axios from 'axios';
+import { useRouter } from "next/navigation";
+import { useState } from "react";
 
 import Input from "@/components/ui/input";
 import useInput from "@/hooks/useInput";
@@ -12,8 +14,6 @@ import { regexPatternValidation, truthyValue } from "./lib/valdiation";
 import {authenticateUser} from  '../Services/Api/User'
 
 import pageStyles from './page.module.css'
-import { useRouter } from "next/navigation";
-import { useState } from "react";
 
 
 const mailRegexPattern=/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/

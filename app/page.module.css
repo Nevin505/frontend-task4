@@ -20,3 +20,8 @@
   }
   
 
+@media(max-width:780px){
+    .mainContainer{
+        width: 95%;
+    }
+}
