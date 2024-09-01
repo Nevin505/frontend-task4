@@ -25,3 +25,13 @@ export type UserDetails ={
     __v: number;
     phoneNumber: string;
   }
+
+
+  export type LocationData= {
+    area: string;
+    district: string;
+    lat: number;
+    lng: number;
+    pincode: number;
+    state: string;
+}

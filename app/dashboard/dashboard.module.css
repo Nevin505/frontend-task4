@@ -25,40 +25,39 @@
 }
 
 .userInfoContainer {
-    background-color: #f8f9fa; /* Light gray background */
-    border-radius: 8px;        /* Rounded corners */
-    padding: 20px;             /* Padding around the content */
-    margin-bottom: 20px;       /* Space below the container */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    background-color: #f8f9fa; 
+    border-radius: 0.5rem;       
+    padding: 1rem;             
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
   }
   
   .userInfoItem {
     display: flex;
-    justify-content: space-between; /* Space between text and the verified badge */
-    align-items: center;            /* Vertically center the items */
-    padding: 10px 0;                /* Space between items */
-    border-bottom: 1px solid #e9ecef; /* Divider between items */
+    justify-content: space-between; 
+    align-items: center;            
+    padding: 0.625rem 0;              
+    border-bottom: 1px solid #e9ecef; 
   }
   
   .userInfoItem:last-child {
-    border-bottom: none; /* Remove the divider from the last item */
+    border-bottom: none; 
   }
   
   .userInfoLabel {
-    font-weight: 600;    /* Bold labels */
-    color: #343a40;      /* Dark gray text color */
+    font-weight: 600;    
+    color: #343a40;     
   }
   
   .verifiedBadge {
-    background-color: #28a745; /* Green background */
-    color: white;              /* White text */
-    border-radius: 0.825rem;       /* Rounded badge */
-    padding: 0.25rem 0.5rem;          /* Padding inside the badge */
-    font-size: 0.82rem;           /* Small font size */
+    background-color: #28a745; 
+    color: white;              
+    border-radius: 0.825rem;    
+    padding: 0.25rem 0.5rem;        
+    font-size: 0.82rem;         
   }
   
   .unverifiedBadge {
-    background-color: #dc3545; /* Red background */
+    background-color: #dc3545;
     color: white;
     border-radius: 0.75rem;
     padding:  0.25rem 0.5rem;
@@ -68,4 +67,58 @@
     display: flex;
     align-items: center;
     gap: 0.4rem;
+  }
+
+  .fieldsToBeVerified {
+    border: 2px solid #ffcc00;       
+    border-radius: 0.5rem;             
+    padding:0.4rem 0.8rem;                   
+    background-color: #fff;         
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); 
+  }
+
+  .fieldsToBeVerified p {
+    padding-block: 0.2rem;
+    font-size: 1rem;              
+    color: #d9534f;                  
+  }
+
+  .apiServor{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width:100%;
+}
+.loadingContainer {
+  width: 100%;
+    display: flex;                  
+    justify-content: center;        
+    align-items: center;           
+    color: #333;                 
+    font-size: 24px;               
+    font-weight: bold;            
+    text-align: center;          
+  }
+  
+  .loadingContainer h1 {
+    margin: 0;                    
+  }
+  
+  .loadingSpinner {
+    margin-left: 10px;          
+    width: 40px;                
+    height: 40px;                 
+    animation: spin 1s linear infinite; 
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  
+
+  @media(max-width:780px){
+    .dashBoardMainContainer{
+       padding:1rem 0.5rem
+    }
   }

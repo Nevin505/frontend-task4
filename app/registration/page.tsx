@@ -183,7 +183,7 @@ const handleNavigation = async () => {
 
   } else {
     // Show a toast notification if required fields are not filled
-    toast("Please Fill The Details");
+    toast(!isEmailVerified?"Please Verify Your Mail":"Please Fill The Details");
   }
 };
 
@@ -199,6 +199,11 @@ const handleCalendarDateChange=(e:React.ChangeEvent<HTMLInputElement>)=>{
 
   if (!e.target.value) {
     setDateError("Date of Birth cannot be empty.");
+    return;
+  }
+  // To check if the User is greater than 18 Year old
+  if (selectedDate.getFullYear() > (today.getFullYear()) - 18) {
+    setDateError("You must be at least 18 years old.");
     return;
   }
   if (selectedDate > today) {

@@ -13,6 +13,7 @@ import {authenticateUser} from  '../Services/Api/User'
 
 import pageStyles from './page.module.css'
 import { useRouter } from "next/navigation";
+import { useState } from "react";
 
 
 const mailRegexPattern=/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/
@@ -27,6 +28,12 @@ export default function Home() {
 
  const password= useInput("");
 
+ 
+ const[isLoading,setIsLoading]=useState(false);
+
+// State to manage API response message
+ const[apiResponseMessage,setApiResponseMessage]=useState<string | null>('');
+
  const isUserEmailInValid= email.didEdit && (!truthyValue(email.inputValue)?"Email Can't Be Empty":!regexPatternValidation(mailRegexPattern,email.inputValue)?'Enter a Valid Email':'');
 
  const isUserPaswordInValid= password.didEdit && (!truthyValue(password.inputValue)?"Password Can't Be Empty":!regexPatternValidation(passwordRegexPattern,password.inputValue)?'Enter a Valid Password':'');
@@ -34,12 +41,22 @@ export default function Home() {
 
 //  To Login User
 const handleUserAuthentication=async()=>{
- const response=  await axios.post(authenticateUser,{email:email.inputValue,password:password.inputValue});
- console.log(response)
- if(response.status==200){
-  sessionStorage.setItem('userId',response.data.id)
-  routes.push('/dashboard')
- }
+try{
+  const response=  await axios.post(authenticateUser,{email:email.inputValue,password:password.inputValue});
+  if(response.status==200){
+   sessionStorage.setItem('userId',response.data.id)
+   routes.push('/dashboard')
+  }
+}
+catch(error:any){
+  if(error?.response?.data?.message){
+    setApiResponseMessage(error.response.data.message)
+  }
+  else{
+    setApiResponseMessage("Some UnExpected Events Occurred!Please Try Again After Sometime")
+  }
+  console.log(error)
+}
 }
 
   return (
@@ -49,7 +66,13 @@ const handleUserAuthentication=async()=>{
           <Input  value={password.inputValue}  startIcon="/icons/passwordSvg.svg"  error={isUserPaswordInValid} placeholder="Enter Password" handleBlur={password.handleBlur}  handleChange={password.handleChange} />
 
           <Button onClick={handleUserAuthentication}>Login</Button>
-            <Link href='/registration' className={pageStyles.registerNavigateLink}>Register </Link>
+           {/* Conditionally render the API response message */}
+      {apiResponseMessage && (
+        <p className={pageStyles.apiResponseMessage}>
+          {apiResponseMessage}
+        </p>
+      )}
+            <p className={pageStyles.registrationInfo}>Are You a New User?<Link href='/registration' className={pageStyles.registerNavigateLink}>Register </Link></p>
 
         </main>
   );

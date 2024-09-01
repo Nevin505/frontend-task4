@@ -1,6 +1,7 @@
 .sideNavContainer{
     display: flex;
     flex-direction: column;
+    gap: 2rem;
     justify-content: space-between;
     padding-inline:0.2rem;
     background-color: #b8e6ff;
@@ -52,4 +53,18 @@
     width: fit-content;
 
 }
+.mobileHamBurger{
+    display: none;
+}
 
+@media(max-width:780px){
+    .sideNavContainer{
+         /* position: absolute;
+         top: 0;
+         bottom: 0;
+         z-index: 4; */
+    }
+    /* .mobileHamBurger{
+      display: block;
+    } */
+}

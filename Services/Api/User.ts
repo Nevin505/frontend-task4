@@ -1,3 +1,5 @@
-export const authenticateUser='http://localhost:3001/login'
+import { backendBaseApi } from "./BaseApi"
 
-export const fetchUserDetails='http://localhost:3001/login/user-details'
+export const authenticateUser=`${backendBaseApi}/login`
+
+export const fetchUserDetails=`${backendBaseApi}/login/user-details`

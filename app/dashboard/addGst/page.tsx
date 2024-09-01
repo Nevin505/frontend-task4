@@ -37,7 +37,10 @@ const AddGstPage = () => {
 
   // to GstIn Verifcation Handler
   const handleGstVerfication=async()=>{
-    console.log('Clicked')
+    if(sessionStorage.getItem('isGstVerified')){
+      setApiResponseMessage("Already Verified")
+      return;
+    }
     setIsLoading(true)
        try{
          // Prepare the request body with GSTIN number and userId
@@ -69,8 +72,6 @@ const AddGstPage = () => {
   }
   
   return (
-    // <div className={gstPageStyles.gstContainer}>
-    //   <div className={gstPageStyles.gstInputVerification}>
     <Card>
         <h1>Goods and Services Tax Identification Number</h1>
           {/* Input field for GSTIN number with validation */}
@@ -82,8 +83,7 @@ const AddGstPage = () => {
       {isgstInNumberInValid &&
        <span className={gstPageStyles.gstinGuidelines}>**15-digit alphanumeric code</span>}
        </Card>
-    //   </div>
-    // </div>
+
   )
 }
 

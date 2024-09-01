@@ -72,7 +72,7 @@ const Page = () => {
   const verifyPhoneOtpHandler=async()=>{
     
     try{
-    const response= await axios.post(verifyPhoneOtp,{userId,OtpNumber:OtpNumber.inputValue,phoneNumber:phoneNumber.inputValue}  , {
+    const response= await axios.patch(verifyPhoneOtp,{userId,OtpNumber:OtpNumber.inputValue,phoneNumber:phoneNumber.inputValue}  , {
         withCredentials: true // Include credentials (such as cookies) in the request
       });
       if(response.status!==200){

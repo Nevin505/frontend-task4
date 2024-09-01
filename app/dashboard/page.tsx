@@ -4,12 +4,18 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { fetchUserDetails } from "@/Services/Api/User";
 
-import dashBoardPageStyles from "./dashboard.module.css";
 import Image from "next/image";
 import { UserDetails } from "@/types/Cutsomtypes";
+
+import dashBoardPageStyles from "./dashboard.module.css";
 // import UserDetails
 const UserLandingPage = () => {
-  const [userDetails, setUserDetails] = useState<UserDetails>({});
+  const [userDetails, setUserDetails] = useState<UserDetails>({} as UserDetails);
+// To set the api Response
+  const[apiResponseMessage,setApiResponseMessage]=useState<string | null>('');
+
+//to Shown the Loading Stage
+  const[isLoading,setIsLoading]=useState<boolean>(true);
 
   useEffect(() => {
     // Function to fetch user details from the server
@@ -28,11 +34,14 @@ const UserLandingPage = () => {
         // Setting the user details state with the fetched data
         setUserDetails(response.data);
       } catch (error) {
+        setApiResponseMessage("An UnExpected Error Occurred!Please Try Again After Sometime")
         // Handling errors that might occur during the API call
         console.error("Failed to fetch user details:", error);
       }
+      finally{
+        setIsLoading(false)
+      }
     };
-
     retrieveUserDetails();
   }, []);
 
@@ -66,6 +75,21 @@ const UserLandingPage = () => {
     { label: "Password", value: userDetails?.password },
   ];
 
+// If the Serve Went Down
+  if(apiResponseMessage){
+    return <div className={dashBoardPageStyles.apiServor}>
+        <h1>{apiResponseMessage}</h1>
+    </div>
+  }
+ // Loading state
+ if (isLoading) {
+  return (
+    <div className={dashBoardPageStyles.loadingContainer}>
+      <h1>Loading user details...</h1>
+      <div className={dashBoardPageStyles.loadingSpinner}></div>
+    </div>
+  );
+}
   return (
     <div className={dashBoardPageStyles.dashBoardMainContainer}>
       <h1>User Details</h1>
@@ -100,7 +124,7 @@ const UserLandingPage = () => {
         ))}
       </div>
 
-      <div>
+      <div className={dashBoardPageStyles.fieldsToBeVerified}>
       {kycDetails.map((field, index) => {
     return !field.isVerified && <p key={index}>{field.label} Needs To Be Verified</p>;
 })}

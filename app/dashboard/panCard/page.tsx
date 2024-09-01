@@ -12,6 +12,7 @@ import { regexPatternValidation, truthyValue } from "@/app/lib/valdiation"
 import {panCardVerificationURL } from "@/Services/Api/Verification"
 
 import panCardStyles from './panCardPage.module.css'
+import { panRegexPattern } from "@/app/lib/RegexPattern"
 
 const PanCardPage = () => {
   // Custom hook to manage Pan Card details input state and validation
@@ -21,22 +22,19 @@ const PanCardPage = () => {
   const[apiResponseMessage,setApiResponseMessage]=useState<string | null>('');
   const[isLoading,setIsLoading]=useState<boolean>(false);
 
-  const panRegex: RegExp = /^[A-Z]{5}[0-9]{4}[A-Z]{1}$/;
-
 // Determine if the send button should be visible based on Pan Card input validation
-  const isSendButtonVisible =truthyValue(panCardDetails.inputValue) && regexPatternValidation(panRegex,panCardDetails.inputValue)
+  const isSendButtonVisible =truthyValue(panCardDetails.inputValue) && regexPatternValidation(panRegexPattern,panCardDetails.inputValue)
 
     // Check if the Pan Card number is invalid and return corresponding error messages
-  const isgstInNumberInValid= panCardDetails.didEdit && (!truthyValue(panCardDetails.inputValue)?"PanCard Number Can't Be Empty":!regexPatternValidation(panRegex,panCardDetails.inputValue)?'Enter a Valid PanCard Number':'');
+  const isgstInNumberInValid= panCardDetails.didEdit && (!truthyValue(panCardDetails.inputValue)?"PanCard Number Can't Be Empty":!regexPatternValidation(panRegexPattern,panCardDetails.inputValue)?'Enter a Valid PanCard Number':'');
 
    // Function to handle Pan Card verification
   const handlePanVerfication=async()=>{
     setIsLoading(true)
     try{
-      console.log('Clicked');
         // Prepare the request body with userId and Pan Card details
         const reqBody={ userId,panCard:panCardDetails.inputValue}
-         const response=await axios.post(panCardVerificationURL,reqBody)
+         const response=await axios.patch(panCardVerificationURL,reqBody)
          console.log(response)
          // If the response is successful, store verification status in session storage and set response message
          if(response.status===200){

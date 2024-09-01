@@ -12,11 +12,16 @@ const page = () => {
     route.push('/')
    }
   return (
+
     <div className={succesStyles.sucessInfoContainer}>
-        <p>Registration Complete|</p>
-        <p>Login To Complete the Verfications</p>
-        <Button onClick={naviagteToLogin}>Login</Button>
-    </div>
+  <p>Registration Complete</p>
+  <p>Login To Complete the Verifications</p>
+  <p className={succesStyles.additionalInfo}>
+    Thank you for registering! Please log in to verify your account and gain access to all features.
+  </p>
+  <button className={succesStyles.button} onClick={naviagteToLogin}>Login</button>
+</div>
+
   )
 }
 

@@ -41,7 +41,7 @@ const AadhaarVerificationPage = () => {
         try{
           const reqBody={userId,aadhaar:aadhaarCard.inputValue}
              // Make an API call to verify the Aadhaar number
-             const response=await axios.post(aadhaarVerificationURL,reqBody)
+             const response=await axios.patch(aadhaarVerificationURL,reqBody)
              console.log(response)
              if(response.status===200){
                sessionStorage.setItem('isAadhaarVerified','true')
