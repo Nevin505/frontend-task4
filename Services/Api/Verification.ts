@@ -8,4 +8,4 @@ export const aadhaarVerificationURL=`${backendBaseApi}/verify/aadhaar`
 
 export const pinCodeVerificationURL=`${backendBaseApi}/verify/validate-address`
 
-export const bankAccountVerificationURL=`${backendBaseApi}/verify/validate-address/bank-Account`
+export const bankAccountVerificationURL=`${backendBaseApi}/verify/bank-Account`

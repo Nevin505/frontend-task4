@@ -12,9 +12,10 @@ import { regexPatternValidation, truthyValue } from "@/app/lib/valdiation";
 import {gstinVerificationURL} from '../../../Services/Api/Verification'
 import axios from "axios";
 import Card from "@/components/ui/Card/card";
+import { gstinRegex } from "@/app/lib/RegexPattern";
 
 
-const gstinRegex:RegExp = /^[0-9]{2}[A-Z]{5}[0-9]{4}[A-Z]{1}[1-9A-Z]{1}Z[0-9A-Z]{1}$/;
+
 
 const AddGstPage = () => {
   // Custom hook to manage GSTIN input state and validation
@@ -64,7 +65,6 @@ const AddGstPage = () => {
         else{
           setApiResponseMessage("An unexpected error occurred. Please try again later.")
         }
-            console.log(error.response.data.message)
        }
        finally{
         setIsLoading(false)

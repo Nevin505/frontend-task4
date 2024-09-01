@@ -15,9 +15,9 @@ import { bankAccountVerificationURL } from "@/Services/Api/Verification"
 
 const BankingAccountPage = () => {
 
-  const bankAccountDetails=useInput();
+  const bankAccountDetails=useInput('');
 
-  const bankIFSCNumber=useInput();
+  const bankIFSCNumber=useInput('');
 
 
      // Retrieve userId from session storage
@@ -42,19 +42,23 @@ const BankingAccountPage = () => {
 
     const isIFSCInValid= bankIFSCNumber.didEdit && (!truthyValue(bankIFSCNumber.inputValue)?"Account  Number Can't Be Empty":!regexPatternValidation(bankIFSCRegexPattern,bankIFSCNumber.inputValue)?'Enter a Valid BankAccount Number':'');
 
+    // Handling the Bank Verification Click Handler
     const handleBankAccountVerfication=async()=>{
       console.log('Clicked')
       setIsLoading(true)
          try{
-          // bankAccountNumber,bankIfscCode
-           // Prepare the request body with GSTIN number and userId
+          // 
+           // Prepare the request body with bankAccountNumber,bankIfscCode,User Id
              const reqBody={ bankAccountNumber:bankAccountDetails.inputValue,bankIfscCode:bankIFSCNumber.inputValue,userId}
               const response=await axios.patch(bankAccountVerificationURL,reqBody)
               console.log(response)
                // If the response is successful, store verification status in session storage and set response message
-              if(response.status===200){
-                sessionStorage.setItem('isGstVerified','true')
-                setApiResponseMessage(response.data.message)
+              if(response.data.message==='completed'){
+                sessionStorage.setItem('isAccountVerified','true');
+                setApiResponseMessage("Bank Account Verified")
+              }
+              if(response.data.message==='in_progress'){
+                setApiResponseMessage("May Take a While")
               }
          }
          catch(error:any){

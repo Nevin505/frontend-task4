@@ -12,3 +12,14 @@
     border-radius: 1rem;
     background-color: white;
 }
+@media(max-width:780px){
+    .InputVerificationContainer{
+    padding: 2rem 0.8rem;
+    }
+    /* .Container{
+        flex: 0;
+        width: 90%;
+    } */
+
+}
+

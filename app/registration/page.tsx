@@ -5,7 +5,7 @@ import { useState } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-import useInput from '@/hooks/useInput.jsx'
+import useInput from '@/hooks/useInput'
 import Input from '../../components/ui/input'
 import OtpInput from '@/components/ui/OtpField/otpInput';
 import Button from '@/components/ui/button';

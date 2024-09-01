@@ -11,7 +11,9 @@ import { usePathname, useRouter } from "next/navigation";
 
 const SideNav = () => {
 
- const currentPath= usePathname()
+ const currentPath= usePathname();
+
+const useRoute= useRouter();
 
  const[highlightButton,setHighlightedButton]= useState<string>();
 
@@ -35,16 +37,21 @@ const toggleSidebar = () => {
 const highlightButtonHandler = (navLabel: string) => {
   setHighlightedButton(navLabel); 
 };
+
+const handleNavigation=()=>{
+  sessionStorage.clear()
+  useRoute.push('/')
+}
   return (
     <nav className={`${navStyles.sideNavContainer} ${isSidebarCollapsed && navStyles.toggleDisplay}`}>
-      <div className={navStyles.mobileHamBurger}>
+      {/* <div className={navStyles.mobileHamBurger}>
       <Image  onClick={toggleSidebar} className={navStyles.expandMore} src={!isSidebarCollapsed ? "/icons/expand-left.svg":"/icons/expand-right.svg"} alt="SignOut Button" width={40} height={40}/>
-      </div>
+      </div> */}
       
         <div className={navStyles.navLinksContainer}>
            <Image  onClick={toggleSidebar} className={navStyles.expandMore} src={!isSidebarCollapsed ? "/icons/expand-left.svg":"/icons/expand-right.svg"} alt="SignOut Button" width={40} height={40}/>
           
-          <div>
+          <div className={`${navStyles.navLinksItemsContainer} ${isSidebarCollapsed?navStyles.display0:navStyles.display1}`}>
             {navigationLinks.map((navigationLink)=>{
                 return <Link onClick={()=>highlightButtonHandler(navigationLink.navLabel)} href={navigationLink.href} key={navigationLink.navLabel} className={`${navStyles.navLink} ${highlightButton===navigationLink.navLabel?
                   navStyles.active:undefined}`}> <Image src={navigationLink.icon} alt={navigationLink.alt} width={20} height={20} title={navigationLink.navLabel}/>{!isSidebarCollapsed &&<span>{navigationLink.navLabel}</span>}</Link>
@@ -52,7 +59,7 @@ const highlightButtonHandler = (navLabel: string) => {
           </div>
           </div>
 
-            <button className={navStyles.signoutButton}><Image  src="/icons/signout.svg" alt="SignOut Button" width={20} height={20} title="Log Out"/>{!isSidebarCollapsed && 'log Out'}</button>
+            <button className={`${navStyles.signoutButton} ${isSidebarCollapsed?navStyles.display0:navStyles.display1}`}onClick={handleNavigation}><Image  src="/icons/signout.svg" alt="SignOut Button" width={20} height={20} title="Log Out"/>{!isSidebarCollapsed && 'log Out'}</button>
     </nav>
   )
 }
