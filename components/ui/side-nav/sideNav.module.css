@@ -1,13 +1,20 @@
+.mainNavContainer{
+    display: flex;
+    flex-direction: column; 
+    width: fit-content;
+
+}
+
 .sideNavContainer{
     display: flex;
     flex-direction: column;
-    gap: 2rem;
+    width: 12rem;
+     gap: 2rem;
     justify-content: space-between;
-    padding-inline:0.2rem;
     background-color: #b8e6ff;
-    width: 16rem;
     box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
     padding-inline: 0.4rem;
+    height: 100%;
 }
 
 .navLinksContainer{
@@ -59,37 +66,26 @@
     flex-direction: column;
     justify-content: space-between;
 }
-
-/* @media(max-width:780px){
-    .sideNavContainer{
-        width: 0;
-        padding: 0;
-    }
-.expandMore{
-    position: absolute;
-     right: 0;
-}
-.navLinksItemsContainer{
-    padding-inline: 0.;
-    position: absolute;
-    z-index: 2; */
-    /* background-color: black; */
-    /* background-color: #b8e6ff;
-    top: 0;
-    bottom: 0;
-    left: 0;
-}
 .mobileHamBurger{
-    position: static;
+    display: none;
+    position: absolute;
+    right: 0;
 }
 
-.display0{
-  display: none;
+@media(max-width:780px){
+    .sideNavContainer{
+        max-width: fit-content;
+        position: absolute;
+        z-index: 2;
+        padding-top: 2.5rem;
+    }
+    .toggleDisplay,.expandMore{
+        display: none;
+    }
+    .mobileHamBurger{
+        display: block;
+    }
+    /* .displayNone{
+        display: 0;
+    } */
 }
-.display1{
-    display: block;
-  }
-  .signoutButton{
-    z-index: 8;
-  } */
-/* } */

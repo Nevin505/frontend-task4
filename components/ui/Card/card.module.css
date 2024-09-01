@@ -15,11 +15,9 @@
 @media(max-width:780px){
     .InputVerificationContainer{
     padding: 2rem 0.8rem;
+    width: 95%;
     }
-    /* .Container{
-        flex: 0;
-        width: 90%;
-    } */
+
 
 }
 
