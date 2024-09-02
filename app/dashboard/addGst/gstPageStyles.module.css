@@ -30,6 +30,11 @@
     .gstInputVerification{
         max-width: 18rem;
     padding: 0.5rem;
-
     }
+
+    @media(max-width:780px){
+        .mainHeading{
+          font-size: 1.5rem;
+        } 
+     }
 }

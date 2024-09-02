@@ -19,7 +19,9 @@ const PanCardPage = () => {
   const panCardDetails=useInput('');
    // Retrieve userId from session storage
   const userId=useSessionStorage('userId');
+
   const[apiResponseMessage,setApiResponseMessage]=useState<string | null>('');
+  
   const[isLoading,setIsLoading]=useState<boolean>(false);
 
 // Determine if the send button should be visible based on Pan Card input validation
@@ -35,7 +37,6 @@ const PanCardPage = () => {
         // Prepare the request body with userId and Pan Card details
         const reqBody={ userId,panCard:panCardDetails.inputValue}
          const response=await axios.patch(panCardVerificationURL,reqBody)
-         console.log(response)
          // If the response is successful, store verification status in session storage and set response message
          if(response.status===200){
           sessionStorage.setItem('isPanVerified','true');
@@ -43,7 +44,6 @@ const PanCardPage = () => {
          }
     }
     catch(error:any){
-     console.log(error);
      // Handle errors and set appropriate error messages
      if(error.response){
        const errorMessage = error.response.data?.message || "An error occurred.";
@@ -53,7 +53,6 @@ const PanCardPage = () => {
      else{
        setApiResponseMessage("An unexpected error occurred. Please try again later.")
      }
-         console.log(error.response?.data?.message)
     }
     finally{
      setIsLoading(false)

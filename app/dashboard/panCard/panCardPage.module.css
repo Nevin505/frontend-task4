@@ -7,3 +7,9 @@
 .mainHeading{
     padding: 1rem;
 }
+
+@media(max-width:780px){
+   .mainHeading{
+     font-size: 1.5rem;
+   } 
+}

@@ -8,3 +8,9 @@
     font-size: 0.8125rem;
     color: red;
 }
+@media(max-width:780px){
+    .mainHeading{
+      font-size: 1.5rem;
+      padding: 0rem;
+    } 
+ }

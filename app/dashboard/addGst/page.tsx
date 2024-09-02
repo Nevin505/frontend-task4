@@ -73,7 +73,7 @@ const AddGstPage = () => {
   
   return (
     <Card>
-        <h1>Goods and Services Tax Identification Number</h1>
+        <h1 className={gstPageStyles.mainHeading}>Goods and Services Tax Identification Number</h1>
           {/* Input field for GSTIN number with validation */}
       <Input type="text" error={isgstInNumberInValid} value={gstInNumber.inputValue} handleChange={gstInNumber.handleChange} handleBlur={gstInNumber.handleBlur} placeholder="Enter Your Gstin Number" />
       {/* Show the verify button only if the input is valid and not loading */}
